@@ -1,9 +1,13 @@
 :root {
-    --primary-sega-color: rgb(20, 52, 121);
-    --secondary-sega-color: rgb(23, 53 211);
-    --accent-sega-color: rgb(231, 51, 47);
+    --primary-sega-color: #143479;
+    --secondary-sega-color: #1735d3;
+    --accent-sega-color: #e7332f;
+    --primary-font: 'Unica One', cursive;
+    --second-font: 'Monoton', cursive;
+    --sega-font: 'MR ROBOT';
 
 }
+
 @font-face {
     font-family: 'MR ROBOT';
     src: url(/css/MR\ ROBOT.ttf);
@@ -18,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font-family: Helvetica;
+    background-image: url(./img/starrynight.jpg);
 }
 
 main {
@@ -28,22 +32,31 @@ main {
 
 main > section {
     flex-wrap: wrap;
-}
-
-.outline {
-    border: 1px dotted red;
+    
 }
 
 .system {
+    display: flex;
+    align-items: center;
+    text-align: center;
     width: 300px;
     height: 400px;
     margin: 10px;
+    color: white;
+    text-shadow: 2px 4px 15px var(--secondary-sega-color);
+    font-family: var(--second-font);
+    font-size: 75px;
+    background-image: url(./img/bluelights.jpg);
     border-radius: 10px;
-    box-shadow: 1px 1px 1px 1px #d3d3d3;
+    box-shadow: 10px 10px 15px 1px black;
 }
 
 .system:hover {
-    box-shadow: 1px 1px 10px 1px #a9a9a9;
+    box-shadow: 1px 1px 10px 1px var(--accent-sega-color);
+}
+
+.system:active {
+    font-weight: bold;
 }
 
 .flex-ctr {
@@ -53,7 +66,7 @@ main > section {
 }
 
 h1 {
-    font-family: 'Unica One', cursive;
+    font-family: var(--primary-font);
     text-shadow: 2px 2px 3px var(--accent-sega-color);
 }
 
@@ -70,12 +83,13 @@ header {
     font-size: 70px;
     font-weight: lighter;
     justify-content: center;
+    border-bottom: 3px solid var(--accent-sega-color);
 }
 
 footer {
     height: 50px;
     justify-content: center;
-    font-family: 'MR ROBOT';
+    font-family: var(--sega-font);
     font-size: 16px;
 }
 

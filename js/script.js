@@ -5,26 +5,30 @@ const GAME_URL = 'https://api.rawg.io/api/games?platforms=167,107,119,117,74,106
 
 
 // Variables
-let gameData;
+let gameData, systemData;
 
 
 
 // Cached Element References
-
+const $sysEl = $('.system');
 
 
 
 // Event Listeners
-
+$sysEl.on('click', handleClick);
 
 
 // Functions
 
-init();
-
-function init() {
-    getPlatData();
+function handleClick() {
+    $.ajax(PLAT_URL)
+    .then(function(data){
+        console.log('Platform Data: ', data);
+    }, function(error) {
+        console.log('Error: ', error);
+    });
 }
+
 
 function getData() {
     $.ajax(GAME_URL + userInput)
@@ -34,16 +38,6 @@ function getData() {
         console.log('Error: ', error);
     });
 }
-
-function getPlatData() {
-    $.ajax(PLAT_URL)
-    .then(function(data){
-        console.log('Platform Data: ', data);
-    }, function(error) {
-        console.log('Error: ', error);
-    });
-}
-
 
 
 /*
