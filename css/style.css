@@ -1,3 +1,14 @@
+:root {
+    --primary-sega-color: rgb(20, 52, 121);
+    --secondary-sega-color: rgb(23, 53 211);
+    --accent-sega-color: rgb(231, 51, 47);
+
+}
+@font-face {
+    font-family: 'MR ROBOT';
+    src: url(/css/MR\ ROBOT.ttf);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -8,4 +19,66 @@ body {
     flex-direction: column;
     min-height: 100vh;
     font-family: Helvetica;
+}
+
+main {
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+main > section {
+    flex-wrap: wrap;
+}
+
+.outline {
+    border: 1px dotted red;
+}
+
+.system {
+    width: 300px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px 1px #d3d3d3;
+}
+
+.system:hover {
+    box-shadow: 1px 1px 10px 1px #a9a9a9;
+}
+
+.flex-ctr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Unica One', cursive;
+    text-shadow: 2px 2px 3px var(--accent-sega-color);
+}
+
+header, footer {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--primary-sega-color);
+    color: #ffffff;
+}
+
+header {
+    height: 150px; 
+    font-size: 70px;
+    font-weight: lighter;
+    justify-content: center;
+}
+
+footer {
+    height: 50px;
+    justify-content: center;
+    font-family: 'MR ROBOT';
+    font-size: 16px;
+}
+
+#modal {
+ 
 }
