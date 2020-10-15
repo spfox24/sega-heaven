@@ -1,11 +1,12 @@
 :root {
     --primary-sega-color: #143479;
     --secondary-sega-color: #1735d3;
+    --sega-blue: #3c81c4;
     --accent-sega-color: #e7332f;
+    --sega-yellow-color: #f4ce50;
     --primary-font: 'Unica One', cursive;
     --second-font: 'Monoton', cursive;
     --sega-font: 'MR ROBOT';
-
 }
 
 @font-face {
@@ -36,27 +37,51 @@ main > section {
 }
 
 .system {
+    position: relative;
     display: flex;
     align-items: center;
     text-align: center;
     width: 300px;
     height: 400px;
-    margin: 10px;
+    margin: 20px;
     color: white;
-    text-shadow: 2px 4px 15px var(--secondary-sega-color);
+    text-shadow: 2px 4px 15px var(--sega-blue);
     font-family: var(--second-font);
     font-size: 75px;
     background-image: url(./img/bluelights.jpg);
     border-radius: 10px;
-    box-shadow: 10px 10px 15px 1px black;
 }
-
+.system:before,
+.system:after{
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    background: linear-gradient(45deg, var(--sega-yellow-color), #ffd700, #f0ef9d);
+    border-radius: 12px;
+    z-index: -1;
+    background-size: 400%;
+    animation: borderbg 40s linear infinite;
+}
+@keyframes borderbg {
+    0%{
+        background-position: 0 0 ;
+    }
+    50%{
+        background-position: 400% 0;
+    }
+    100%{
+        background-position: 0 0 ;
+    }
+}
+.system:after{
+    filter: blur(8px);
+}
 .system:hover {
-    box-shadow: 1px 1px 10px 1px var(--accent-sega-color);
-}
-
-.system:active {
-    font-weight: bold;
+    box-shadow: 1px 1px 30px 1px var(--sega-yellow-color);
+    cursor: pointer;
 }
 
 .flex-ctr {
@@ -67,28 +92,42 @@ main > section {
 
 h1 {
     font-family: var(--primary-font);
-    text-shadow: 2px 2px 3px var(--accent-sega-color);
+    text-shadow: 2px 2px 3px var(--sega-blue);
 }
 
 header, footer {
     display: flex;
     align-items: center;
     width: 100%;
-    background-color: var(--primary-sega-color);
     color: #ffffff;
 }
 
 header {
-    height: 150px; 
+    height: 150px;
     font-size: 70px;
-    font-weight: lighter;
     justify-content: center;
     border-bottom: 3px solid var(--accent-sega-color);
+    background-image: linear-gradient(-45deg, var(--primary-sega-color), var(--secondary-sega-color), var(--sega-blue));
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+@keyframes gradient {
+    0%{
+        background-position: 0% 50% ;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
 }
 
 footer {
     height: 50px;
     justify-content: center;
+    background-color: var(--primary-sega-color);
+    border-top: 3px solid var(--accent-sega-color);
     font-family: var(--sega-font);
     font-size: 16px;
 }
