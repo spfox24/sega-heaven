@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Poiret+One&family=Unica+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Shade&family=Gruppo&family=Iceberg&family=Iceland&display=swap" rel="stylesheet">
     <!-- Local CSS -->
     <link rel="stylesheet" href="css/style.css">
     <!-- jQuery -->
@@ -23,37 +24,47 @@
     <header>
         <h1>Sega Heaven</h1>
     </header>
+    <form class="search">
+        <input class="input" type="text" placeholder="Search By Game">
+        <input class="btn" type="submit" value="Search">
+    </form>
+
+
     <main class="flex-ctr">
-        <section id="segaList" class="flex-ctr">
+
+        <section id="gameList" class="flex-ctr">
+
+        </section>
+
+        <section id="systemList" class="flex-ctr">
+        
             <article id="master" class="system">
-                <h3>Sega 60</h3>
+                <h3>SEGA 60</h3>
             </article>
-            <article id="genesis"class="system">
-                <h3>Sega 60</h3>
+            <article id="genesis" class="system">
+                <h3>SEGA 60</h3>
             </article>
-            <article id="cd"class="system">
-                <h3>Sega 60</h3>
+            <article id="saturn" class="system">
+                <h3>SEGA 60</h3>
             </article>
-            <article id="32x"class="system">
-                <h3>Sega 60</h3>
+            <article id="cd" class="system">
+                <h3>SEGA 60</h3>
             </article>
-            <article id="saturn"class="system left">
-                <h3>Sega 60</h3>
+            <article id="thirtytwo" class="system">
+                <h3>SEGA 60</h3>
             </article>
-            <article id="dream"class="system right">
-                <h3>Sega 60</h3>
+            <article id="dreamcast" class="system">
+                <h3>SEGA 60</h3>
             </article>
 
         </section>
+        <img class="img flex-ctr" src="./css/img/sonic.jpg" alt="Sonic">
     </main>
+
     <footer>
-        <p>Copyright &copy; 2020 Steven Fox All Rights Reserved</p>
+        <p>Copyright <span id="year"></span> Steven Fox All Rights Reserved</p>
     </footer>
 
-    <div id="modal" class="modal">
-        <h4 id="name"></h4>
-        <p id="desc"></p>
-    </div>
 
 </body>
 

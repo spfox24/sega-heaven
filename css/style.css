@@ -38,16 +38,14 @@ main > section {
 
 .system {
     position: relative;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    width: 300px;
+    width: 325px;
     height: 400px;
     margin: 20px;
     color: white;
     text-shadow: 2px 4px 15px var(--sega-blue);
-    font-family: var(--second-font);
-    font-size: 75px;
+    font-family: var(--sega-font);
+    font-size: 45px;
+    padding: 12px;
     background-image: url(./img/bluelights.jpg);
     border-radius: 10px;
 }
@@ -76,12 +74,19 @@ main > section {
         background-position: 0 0 ;
     }
 }
-.system:after{
+.system:after {
     filter: blur(8px);
 }
 .system:hover {
     box-shadow: 1px 1px 30px 1px var(--sega-yellow-color);
     cursor: pointer;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
 }
 
 .flex-ctr {
@@ -91,7 +96,7 @@ main > section {
 }
 
 h1 {
-    font-family: var(--primary-font);
+    font-family: 'Bungee Hairline', cursive;
     text-shadow: 2px 2px 3px var(--sega-blue);
 }
 
@@ -104,9 +109,10 @@ header, footer {
 
 header {
     height: 150px;
-    font-size: 70px;
+    font-size: 65px;
     justify-content: center;
-    border-bottom: 3px solid var(--accent-sega-color);
+
+    opacity: .80;
     background-image: linear-gradient(-45deg, var(--primary-sega-color), var(--secondary-sega-color), var(--sega-blue));
     background-size: 400% 400%;
     animation: gradient 15s ease infinite;
@@ -127,9 +133,74 @@ footer {
     height: 50px;
     justify-content: center;
     background-color: var(--primary-sega-color);
-    border-top: 3px solid var(--accent-sega-color);
     font-family: var(--sega-font);
     font-size: 16px;
+}
+
+.search {
+    padding: 20px;
+    justify-content: center;
+    text-align: center;
+    margin-left: 20px;
+}
+
+.input {
+    margin-top: 40px;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    outline: none;
+}
+
+.btn {
+    background-color:  rgba(20, 52, 121, 1);
+    border: 1px solid #fbfefb;
+    border-radius: 5px;
+    color: #fbfefb;
+    height: 40px;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: var(--sega-font);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    margin-left: 5px;
+}
+.btn:active {
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color:  rgba(20, 52, 121, .4);
+}
+
+.img {
+    width: 165px;
+    height: 160px;
+    overflow: hidden;
+    border: 10px var(--primary-sega-color);
+    border-radius: 50%;
+    border: 10px solid var(--primary-sega-color);
+    box-shadow: 1px 1px 30px var(--sega-yellow-color);
+    margin: 20px;
+}
+
+.img img {
+    width: 100%;
+    height: auto;
+}
+
+#gameList {
+    font-family: 'Gruppo', cursive;
+    color: black;
+    font-size: 20px;
+    background-color: white;
+    display: table-column;
+}
+
+li {
+    list-style-type: none;
 }
 
 #modal {
