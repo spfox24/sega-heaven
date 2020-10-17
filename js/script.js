@@ -52,6 +52,7 @@ const yearEl = document.getElementById('year');
 
 // Event Listeners
 $form.on('submit', handleGetData);
+
 $btnMas.on('click', showMaster);
 $btnGen.on('click', showGenesis);
 $btnSat.on('click', showSaturn);
@@ -59,6 +60,7 @@ $btnCD.on('click', showCD);
 $btn32.on('click', show32);
 $btnDC.on('click', showDC);
 
+window.addEventListener('load', reload);
 
 // Functions
 
@@ -69,6 +71,7 @@ function init() {
     getSysData();
 };
 
+//  SYSTEM CARD DATA
 function getSysData() {
     $.ajax(PLAT_URL)
     .then(function(data){
@@ -81,7 +84,7 @@ function getSysData() {
         console.log('Error: ', error);
     });
 }
-
+// GAME SEARCH DATA
 function handleGetData(event) {
     event.preventDefault();
 
@@ -95,7 +98,7 @@ function handleGetData(event) {
         gameData = data;
 
         $input.val('');
-        render();
+        render(true);
 
     }, function(error) {
         console.log('Error: ', error);
@@ -113,8 +116,9 @@ function generateUI() {
     });
 }
 
-function render() {
-    
+function render(gameData) {
+
+        
     // Render System Name to Main
         $master.text(systemData.results[44].name);
         $genesis.text(systemData.results[40].name);
@@ -122,10 +126,18 @@ function render() {
         $cd.text(systemData.results[42].name);
         $saturn.text(systemData.results[41].name); 
         $dream.text(systemData.results[45].name); 
-        
+
     // Render Games to Main
-    $gameEl.html(generateUI());
-    };
+    if(gameData) {
+        $gameEl.html(generateUI());
+         }
+    }
+
+
+
+
+
+
 
 function showMaster(event) {
     event.preventDefault();
@@ -157,9 +169,17 @@ function showDC(event) {
     $modDC.modal();
 }
 
+function reload() {
+   // console.log('Reload!');
+   let array = Object.keys(localStorage);
+   array.forEach(game => {
+       $.append(`<li>${game}</li>`);
+   })
+}
 
 
 function getYear() {
     year = new Date().getFullYear();
     yearEl.innerText = year;
 }
+

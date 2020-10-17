@@ -40,6 +40,7 @@ main > section {
     width: 325px;
     height: 400px;
     margin: 20px;
+    border: none;
     color: white;
     text-shadow: 2px 4px 15px var(--sega-blue);
     font-family: var(--sega-font);
@@ -47,6 +48,7 @@ main > section {
     padding: 12px;
     background-image: url(./img/bluelights.jpg);
     border-radius: 10px;
+    outline: none;
 }
 .system:before,
 .system:after{
@@ -198,7 +200,7 @@ footer {
     border: 3px solid var(--sega-blue);
 }
 
-ul > li {
+li {
     list-style-type: none;
     margin: 10px 37px 10px 0px;
 }
@@ -284,6 +286,15 @@ h3 {
         height: 35px;
         font-size: 14px;
     }
+    .modal-header {
+        font-size: 20px;    
+    }
+    .modal-body {
+        font-size: 13px;
+    }
+    h3 {
+        font-size: 40px;
+    }
 }
 
 @media screen and (max-width: 470px) {
@@ -308,6 +319,16 @@ h3 {
         width: 243px;
         height: 300px;
         font-size: 33px; 
+    }
+    .modal-header {
+        font-size: 20px;    
+    }
+    .modal-body {
+        font-size: 12px;
+        line-height: 1.2;
+    }
+    h3 {
+        font-size: 30px;
     }
     footer {
         font-size: 12px;
