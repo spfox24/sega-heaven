@@ -252,5 +252,16 @@ h3 {
     text-shadow: 3px 3px 2px var(--primary-sega-color);
 }
 
+@media screen and (max-width: 950px) {
+    body {
+        margin: auto 0;
+    }
+    header {
+        display: inline;
+        text-align: center;
+        height: 300px;
+    }
+    
+}
 
 
