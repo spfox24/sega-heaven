@@ -47,7 +47,7 @@ const $btnDC = $('.btn-dc');
 // Form El
 const $form = $('form')
 const $input = $('input[type="text"]');
-
+// Year auto update
 const yearEl = document.getElementById('year');
 
 // Event Listeners
