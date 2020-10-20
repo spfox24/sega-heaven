@@ -43,7 +43,6 @@ const $btn32 = $('.btn-32');
 const $modDC = $('#dreamcast-mod');
 const $btnDC = $('.btn-dc');
 
-
 // Form El
 const $form = $('form')
 const $input = $('input[type="text"]');
