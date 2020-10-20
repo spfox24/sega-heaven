@@ -6,7 +6,7 @@ const GAME_URL = 'https://api.rawg.io/api/games'
 
 
 // Variables
-let gameData, systemData, userInput, year;
+let gameData, systemData, userInput, visible, year;
 
 
 
@@ -53,6 +53,7 @@ const yearEl = document.getElementById('year');
 // Event Listeners
 $form.on('submit', handleGetData);
 
+
 $btnMas.on('click', showMaster);
 $btnGen.on('click', showGenesis);
 $btnSat.on('click', showSaturn);
@@ -60,7 +61,6 @@ $btnCD.on('click', showCD);
 $btn32.on('click', show32);
 $btnDC.on('click', showDC);
 
-window.addEventListener('load', reload);
 
 // Functions
 
@@ -133,12 +133,6 @@ function render(gameData) {
          }
     }
 
-
-
-
-
-
-
 function showMaster(event) {
     event.preventDefault();
     $modMas.modal();
@@ -169,17 +163,8 @@ function showDC(event) {
     $modDC.modal();
 }
 
-function reload() {
-   // console.log('Reload!');
-   let array = Object.keys(localStorage);
-   array.forEach(game => {
-       $.append(`<li>${game}</li>`);
-   })
-}
-
 
 function getYear() {
     year = new Date().getFullYear();
     yearEl.innerText = year;
 }
-
