@@ -24,5 +24,5 @@ https://sega-heaven.netlify.app/
 
 ### Future Versions to Include
 - Smoother display for search results
-- Interactive game information
 - Improved Search parameters (.ie filters)
+- Fix GPU spikes on additional browsers with animation
