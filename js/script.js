@@ -6,7 +6,7 @@ const GAME_URL = 'https://api.rawg.io/api/games'
 
 
 // Variables
-let gameData, systemData, userInput, visible, year;
+let gameData, systemData, userInput, year;
 
 
 
@@ -14,6 +14,7 @@ let gameData, systemData, userInput, visible, year;
 
 // GAME_URL El
 const $gameEl = $('#gameList');
+const $listEl = $('#background');
 
 
 // PLAT_URL El
@@ -54,6 +55,9 @@ const yearEl = document.getElementById('year');
 $form.on('submit', handleGetData);
 
 
+$gameEl.on('click', 'li', handleGetInfo);
+
+
 $btnMas.on('click', showMaster);
 $btnGen.on('click', showGenesis);
 $btnSat.on('click', showSaturn);
@@ -74,43 +78,44 @@ function init() {
 //  SYSTEM CARD DATA
 function getSysData() {
     $.ajax(PLAT_URL)
-    .then(function(data){
-        
-        systemData = data;
+        .then(function (data) {
 
-        render();
+            systemData = data;
 
-    }, function(error) {
-        console.log('Error: ', error);
-    });
+            render();
+
+        }, function (error) {
+            console.log('Error: ', error);
+        });
 }
 // GAME SEARCH DATA
 function handleGetData(event) {
     event.preventDefault();
 
     userInput = $input.val();
-    
-    if(!userInput) return;
+
+    if (!userInput) return;
 
     $.ajax(GAME_URL + '?platforms=167,107,119,117,74,106&search=' + userInput)
-    .then(function(data){
+        .then(function (data) {
 
-        gameData = data;
+            gameData = data;
 
-        $input.val('');
-        render(true);
+            $input.val('');
+            render(true);
 
-    }, function(error) {
-        console.log('Error: ', error);
-    });
+        }, function (error) {
+            console.log('Error: ', error);
+        });
 }
 
+
 function generateUI() {
-    return gameData.results.map(function(game) {
+    return gameData.results.map(function(game, index) {
         return `
         <article id="games" class="flex-ctr">
             <ul>
-               <li>${game.name}</li>
+               <li data-index="${index}" id="title">${game.name}</li>
             </ul>
         </article>`;
     });
@@ -118,20 +123,28 @@ function generateUI() {
 
 function render(gameData) {
 
-        
     // Render System Name to Main
-        $master.text(systemData.results[44].name);
-        $genesis.text(systemData.results[40].name);
-        $thirtytwo.text(systemData.results[43].name);
-        $cd.text(systemData.results[42].name);
-        $saturn.text(systemData.results[41].name); 
-        $dream.text(systemData.results[45].name); 
+    $master.text(systemData.results[44].name);
+    $genesis.text(systemData.results[40].name);
+    $thirtytwo.text(systemData.results[43].name);
+    $cd.text(systemData.results[42].name);
+    $saturn.text(systemData.results[41].name);
+    $dream.text(systemData.results[45].name);
 
     // Render Games to Main
-    if(gameData) {
+    if (gameData) {
         $gameEl.html(generateUI());
-         }
     }
+}
+
+function handleGetInfo() {
+   const url = gameData.results[this.dataset.index].background_image;
+
+    if(url) {
+        $('#background').attr('src', url);
+        $listEl.modal();
+    }
+}
 
 function showMaster(event) {
     event.preventDefault();
