@@ -1,6 +1,6 @@
 # **Sega Heaven**
 
-A database search of Sega games for the 60th anniversery of the classic system maker. Brief history on each of their landmark systems included in the UI.
+A database search of Sega games for the 60th anniversary of the classic system maker. Brief history on each of their landmark systems included in the UI.
 
 ## Version 1.0
 Current build includes:
